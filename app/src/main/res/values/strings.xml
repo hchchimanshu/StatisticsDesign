@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Statistics</string>
+
+<!--    statistics-->
+    <string name="day">Day</string>
+    <string name="month">Month</string>
+    <string name="week">Week</string>
+    <string name="year">Year</string>
+
+<!--    toolbar-->
+    <string name="toolbar_text">Statistics</string>
+
+
+    <string name="top_spending">Top Spending</string>
+
+    <string-array name="expense_spinner_array">
+        <item>Expense</item>
+        <item>High</item>
+        <item>Medium</item>
+        <item>Low</item>
+    </string-array>
+
+</resources>

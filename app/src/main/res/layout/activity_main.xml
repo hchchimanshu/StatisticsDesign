@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
+    <Spinner
+        android:id="@+id/expense_SP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:gravity="center"
+        android:paddingRight="@dimen/_16sdp"
+        android:background="@drawable/spinner_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/day_TV" />
+
+    <org.eazegraph.lib.charts.ValueLineChart
+        android:id="@+id/cubiclinechart"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginLeft="@dimen/_6sdp"
+        android:layout_marginRight="@dimen/_6sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        app:egCurveSmoothness="0.4"
+        app:egIndicatorLineColor="@color/teal_700"
+        android:outlineProvider="bounds"
+        app:egLegendHeight="@dimen/_35sdp"
+        app:egIndicatorTextColor="@color/teal_700"
+        app:egUseCubic="true"
+        app:egUseOverlapFill="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/expense_SP" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/icons_BNV"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_55sdp"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_menu"/>
+
+
+    <TextView
+        android:id="@+id/day_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:background="@drawable/rounded_background"
+        android:paddingLeft="@dimen/_20sdp"
+        android:paddingTop="@dimen/_6sdp"
+        android:paddingRight="@dimen/_20sdp"
+        android:paddingBottom="@dimen/_6sdp"
+        android:text="@string/day"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/week_TV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/week_TV"
+        style="@style/Buttons_padding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/week"
+        app:layout_constraintBottom_toBottomOf="@+id/day_TV"
+        app:layout_constraintEnd_toStartOf="@+id/month_TV"
+        app:layout_constraintStart_toEndOf="@+id/day_TV"
+        app:layout_constraintTop_toTopOf="@+id/day_TV" />
+
+    <TextView
+        android:id="@+id/month_TV"
+        style="@style/Buttons_padding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/month"
+        app:layout_constraintBottom_toBottomOf="@+id/day_TV"
+        app:layout_constraintEnd_toStartOf="@+id/year_TV"
+        app:layout_constraintStart_toEndOf="@+id/week_TV"
+        app:layout_constraintTop_toTopOf="@+id/day_TV" />
+
+    <TextView
+        android:id="@+id/year_TV"
+        style="@style/Buttons_padding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:text="@string/year"
+        app:layout_constraintBottom_toBottomOf="@+id/day_TV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/month_TV"
+        app:layout_constraintTop_toTopOf="@+id/day_TV" />
+
+    <TextView
+        android:id="@+id/spending_heading_TV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/top_spending"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        app:layout_constraintBottom_toTopOf="@+id/spending_RV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cubiclinechart"
+        app:layout_constraintVertical_bias="0.87" />
+
+    <ImageView
+        android:id="@+id/sort_IV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_12sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/spending_heading_TV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/spending_heading_TV"
+        app:srcCompat="@drawable/ic_network" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/spending_RV"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_180sdp"
+        app:layout_constraintBottom_toTopOf="@+id/icons_BNV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/item_spending_recyclerview" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

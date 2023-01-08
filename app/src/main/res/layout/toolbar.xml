@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize">
+
+    <TextView
+        android:id="@+id/toolbar_text"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/toolbar_text"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/download_IV"
+        app:layout_constraintStart_toEndOf="@+id/back_IV"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/back_IV"
+        android:layout_width="wrap_content"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginLeft="@dimen/_12sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_arrow_back" />
+
+    <ImageView
+        android:id="@+id/download_IV"
+        android:layout_width="wrap_content"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginRight="@dimen/_12sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_download" />
+</androidx.constraintlayout.widget.ConstraintLayout>
